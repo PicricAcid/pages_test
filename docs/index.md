@@ -2,9 +2,9 @@
 title: トップ
 ---
 
-# test
+# テストサイト
 
-ようこそ！ testサイトです。
+ようこそ！
 
 ## ページ一覧
 
@@ -13,4 +13,5 @@ title: トップ
 
 ## タグ別
 
-- [API](tags/api.md)
+- [APIタグ](tags/api.md)
+- [ガイド](tags/guide.md)
