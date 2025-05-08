@@ -1,3 +1,5 @@
 title: test
 theme: jekyll-theme-cayman
+permalink: pretty
+markdown: kramdown
 
