@@ -1,6 +1,5 @@
 ---
 title: はじめに
-layout: default
 tags: [入門, API]
 ---
 
