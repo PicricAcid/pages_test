@@ -1,10 +1,10 @@
 ---
 title: はじめに
-tags: [入門, API]
+tags: [API, guide]
 ---
 
 # はじめに
 
-この文書では、システムの導入方法について説明します。
+これはシステム導入ガイドです。
 
 {% include tag_list.html %}
