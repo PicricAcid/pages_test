@@ -1,0 +1,11 @@
+title: テスト
+description: test
+theme: jekyll-theme-cayman  # 変更可
+baseurl: ""  # GitHub Pagesでは通常空でOK
+markdown: kramdown
+permalink: pretty
+
+# Optional: フィードバック用Issueリポジトリ（utterances用）
+utterances:
+  repo: your-org/docs-feedback
+  issue-term: pathname
