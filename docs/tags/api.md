@@ -1,4 +1,5 @@
 ---
+layout: tag
 tag: API
 title: タグ: API
 ---
