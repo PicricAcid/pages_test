@@ -1,6 +1,5 @@
 ---
 title: トップ
-layout: default
 ---
 
 # test
