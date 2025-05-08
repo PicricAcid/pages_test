@@ -1,11 +1,3 @@
-title: テスト
-description: test
-theme: jekyll-theme-minimal
-baseurl: ""  # GitHub Pagesでは通常空でOK
-markdown: kramdown
-permalink: pretty
+title: test
+theme: jekyll-theme-cayman
 
-# Optional: フィードバック用Issueリポジトリ（utterances用）
-utterances:
-  repo: your-org/docs-feedback
-  issue-term: pathname
