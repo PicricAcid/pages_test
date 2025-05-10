@@ -17,9 +17,39 @@ a:hover {
   text-decoration: underline;
 }
 
-pre, code {
-  font-family: "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
-  font-size: 0.95em;
+pre {
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 1em;
+  overflow-x: auto;
+  position: relative;
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+
+pre code {
+  font-family: "Fira Code", "JetBrains Mono", Menlo, Consolas, monospace;
+  background: none;
+  padding: 0;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 0.8em;
+  padding: 0.2em 0.5em;
+  background: #0366d6;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.copy-button:hover {
+  opacity: 1;
 }
 
 img {
