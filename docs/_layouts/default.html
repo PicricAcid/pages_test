@@ -4,22 +4,29 @@
     <meta charaset="UTF-8">
     <title>{{ page.title }} | {{ site.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/toc.css">
   </head>
 
   <body>
-    <header>
-      <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-    </header>
+    <div class="container">
+      <header>
+        <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+        {% if site.description %}
+          <p class="description">{{ site.description }}</p>
+        {% endif }
+      </header>
 
-    <main>
-      {{ content }}
-    </main>
+      <main>
+        {{ content }}
+      </main>
 
-    <footer>
-      <p>©︎ {{ site.time | date: "%Y" }} {{ site.title }}</p>
-    </footer>
-
+      <footer>
+        <p>©︎ {{ site.time | date: "%Y" }} {{ site.title }}</p>
+      </footer>
+      
+    </div>
+    
     <script src="{{ site.baseurl }}/assets/toc.js"></script>
   </body>
 </html>
