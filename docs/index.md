@@ -10,6 +10,7 @@ title: トップ
 
 - [はじめに](getting-started.md)
 - [FAQ](faq.md)
+- [プラグインなしでVimを使うためのいろいろ](プラグインなしでVimを使うためのいろいろ.md)
 
 ## タグ別
 
