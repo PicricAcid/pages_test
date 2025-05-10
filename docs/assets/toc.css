@@ -1,0 +1,10 @@
+#toc{
+  border: 1px solid #ccc;
+  padding: 1em;
+  margin-bottom: 2em;
+  background: #f9f9f9;
+}
+
+#toc h2 {
+  margin-top: 0;
+}
