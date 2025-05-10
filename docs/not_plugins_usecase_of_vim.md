@@ -1,5 +1,5 @@
 ---
-title: トップ
+title: プラグインなしでVimを使うためのいろいろ
 tags: [vim, vimscript]
 ---
 
