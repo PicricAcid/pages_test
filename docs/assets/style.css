@@ -17,6 +17,18 @@ a:hover {
   text-decoration: underline;
 }
 
+pre, code {
+  font-family: "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+  font-size: 0.95em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em 0;
+}
+
 header h1 {
   font-size: 2rem;
   margin-bottom: 0.2em;
