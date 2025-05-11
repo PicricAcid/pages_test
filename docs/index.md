@@ -1,6 +1,6 @@
 ---
 title: トップ
-layout: index.html
+layout: default
 ---
 
 # テストサイト
