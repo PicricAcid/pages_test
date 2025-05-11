@@ -38,6 +38,16 @@
         
         {{ content }}
       </main>
+      
+      <div class="feedback">
+        <a 
+          class="feedback-button"
+          href="https://github.com/PicricAcid/pages_test/issues/new?title={{ page.title | uri_escape }} のフィードバック&body=このページに関するフィードバックを入力してください: {{ site.url }}{{ page.url }}"
+          target="_blank"
+        >
+          📝 フィードバックを送る
+        </a>
+      </div>
 
       <aside class="page-toc" id="toc">
       </aside>
