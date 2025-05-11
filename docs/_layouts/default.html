@@ -26,6 +26,16 @@
           {% if page.author %}🖋 {{ page.author }} {% endif %}
           {% if page.date %}📅 {{ page.date | date: "%Y年%m月%d日" }}{% endif %}
         </p>
+        
+        {% if page.tags %}
+          <p class="page-tags">
+            🏷 :
+            {% for tag in page.tags %}
+              <a class="tag-link" href="{{ site.baseurl }}/tags/{{ tag | downcase | uri_escape }}.html">[{{ tag }}]</a>
+            {% endfor %}
+          </p>
+        {% endif %}
+        
         {{ content }}
       </main>
 
