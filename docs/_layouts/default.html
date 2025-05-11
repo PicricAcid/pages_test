@@ -9,32 +9,32 @@
   </head>
 
   <body>
-    <div class="container">
-      <header>
-        <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-        {% if site.description %}
-          <p class="description">{{ site.description }}</p>
-        {% endif %}
-        
-        {% if page.author or page.date %}
-          <p class="meta" style="font-size: 0.9em; color: #666; margin-bottom: 1em;">
-            {% if page.author %}🖋 作成者: {{ page.author }}{% endif %}
-            {% if page.author and page.date %}　{% endif %}
-            {% if page.date %}📅 更新日: {{ page.date | date: "%Y年%m月%d日" }}{% endif %}
-          </p>
-        {% endif %}
-      </header>
-
-      <main>
+    <header class="site-header">
+      <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+      <nav class="site-nav">
+        <a href="{{ site.baseurl }}/tags/index.html">ホーム</a>
+        <a href="https://github.com/{{ site.github.repository_nwo }}">GitHub</a>
+      </nav>
+    </header>
+    
+    <div class="page">
+      <main class="page-content">
+        <h2 class="page-title">{{ page.title }}</h2>
+        <p class="page-meta">
+          {% if page.author %}🖋 {{ page.author }} {% endif %}
+          {% if page.date %}📅 {{ page.date | date: "%Y年%m月%d日" }}{% endif %}
+        </p>
         {{ content }}
       </main>
 
-      <footer>
-        <p>©︎ {{ site.time | date: "%Y" }} {{ site.title }}</p>
-      </footer>
-      
+      <aside class="page-toc" id="toc">
+      </aside>
     </div>
-    
+
+    <footer>
+      <p>©︎ {{ site.time | date: "%Y" }} {{ site.title }}</p>
+    </footer>
+      
     <script src="{{ site.baseurl }}/assets/toc.js"></script>
     <script src="{{ site.baseurl }}/assets/copy.js"></script>
   </body>
