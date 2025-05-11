@@ -7,11 +7,14 @@ layout: index.html
 
 ようこそ！
 
-## ページ一覧
+## 記事一覧
 
-- [はじめに](getting-started.md)
-- [FAQ](faq.md)
-- [プラグインなしでVimを使うためのいろいろ](not_plugins_usecase_of_vim.md)
+<ul>
+  {% assign pages = site.pages | where_exp: "p", "p.path contains 'contents/'" %}
+  {% for p in pages %}
+    <li><a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a></li>
+  {% endfor %}
+</ul>
 
 ## タグ別
 
