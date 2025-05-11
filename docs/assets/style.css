@@ -59,6 +59,12 @@ img {
   margin: 1em 0;
 }
 
+.meta {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 1em;
+}
+
 header h1 {
   font-size: 2rem;
   margin-bottom: 0.2em;
