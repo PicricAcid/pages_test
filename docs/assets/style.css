@@ -159,3 +159,24 @@ img {
 .page-tags .tag-link:hover {
   text-decoration: underline;
 }
+
+.feedback {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.feedback-button {
+  display: inline-block;
+  background-color: #0366d6;
+  color: white;
+  padding: 0.6em 1.2em;
+  font-size: 0.95em;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.feedback-button:hover {
+  background-color: #024ea2;
+}
