@@ -15,6 +15,14 @@
         {% if site.description %}
           <p class="description">{{ site.description }}</p>
         {% endif %}
+        
+        {% if page.author or page.date %}
+          <p class="meta" style="font-size: 0.9em; color: #666; margin-bottom: 1em;">
+            {% if page.author %}🖋 作成者: {{ page.author }}{% endif %}
+            {% if page.author and page.date %}　{% endif %}
+            {% if page.date %}📅 更新日: {{ page.date | date: "%Y年%m月%d日" }}{% endif %}
+          </p>
+        {% endif %}
       </header>
 
       <main>
