@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const content = document.querySelector("main") || document.body;
+  const tocContainer = document.querySelector("#toc");
+  const contetn = document.querySelector("main") || document.body;
   const headings = content.querySelectorAll("h2", "h3");
   if (headings.length === 0) return;
 
@@ -19,5 +20,5 @@ document.addEventListener("DOMContentLoaded", function () {
     ul.appendChild(li);
   });
 
-  content.prepend(toc);
+  tocContainer.appendChild(toc);
 });
