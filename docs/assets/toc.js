@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   const tocContainer = document.querySelector("#toc");
-  const contetn = document.querySelector("main") || document.body;
-  const headings = content.querySelectorAll("h2", "h3");
-  if (headings.length === 0) return;
+  const content = document.querySelector("main") || document.body;
+  const headings = content.querySelectorAll("h2, h3");
+
+  if (!tocContainer || headings.length === 0) {
+    if (tocContainer) tocContainer.style.display = "none";
+    return;
+  }
 
   const toc = document.createElement("nav");
-  toc.id = "toc";
   toc.innerHTML = "<h2>目次</h2><ul></ul>";
-
   const ul = toc.querySelector("ul");
 
   headings.forEach(h => {
@@ -22,3 +24,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   tocContainer.appendChild(toc);
 });
+
