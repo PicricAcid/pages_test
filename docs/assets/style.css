@@ -160,26 +160,27 @@ img {
   text-decoration: underline;
 }
 
-.feedback-toc-below {
-  flex-basis: 100%;
-  text-align: right;
+.feedback {
+  background: #f0f0f0;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   margin-top: 1rem;
-  padding-right: 1rem;
+  text-align: center;
 }
 
 .feedback-button {
   display: inline-block;
   background-color: #0366d6;
   color: white;
-  padding: 0.6em 1.2em;
-  font-size: 0.9em;
+  padding: 0.5em 1em;
+  font-size: 0.85em;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-
 .feedback-button:hover {
   background-color: #024ea2;
 }
