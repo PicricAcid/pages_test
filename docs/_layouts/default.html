@@ -37,20 +37,20 @@
         {% endif %}
         
         {{ content }}
-        
-        <div class="feedback">
-          <a 
-            class="feedback-button"
-            href="https://github.com/PicricAcid/pages_test/issues/new?title={{ page.title | uri_escape }} のフィードバック&body=このページに関するフィードバックを入力してください: {{ site.url }}{{ page.url }}"
-            target="_blank"
-          >
-            📝 フィードバックを送る
-          </a>
-        </div>
       </main>
       
       <aside class="page-toc" id="toc">
       </aside>
+      
+      <div class="feedback">
+        <a 
+          class="feedback-button"
+          href="https://github.com/PicricAcid/pages_test/issues/new?title={{ page.title | uri_escape }} のフィードバック&body=このページに関するフィードバックを入力してください: {{ site.url }}{{ page.url }}"
+          target="_blank"
+        >
+          📝 フィードバックを送る
+        </a>
+      </div>
     </div>
 
     <footer>
