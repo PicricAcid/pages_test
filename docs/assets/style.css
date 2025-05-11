@@ -143,3 +143,19 @@ img {
   color: #666;
   margin-bottom: 2em;
 }
+
+.page-tags {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.page-tags .tag-link {
+  margin-right: 0.5em;
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.page-tags .tag-link:hover {
+  text-decoration: underline;
+}
