@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const replacements = {
     "[!NOTE]": { class: "note", label: "📝 NOTE" },
-    "[!TIP]": { class: "tip" label: "💡 TIP" },
+    "[!TIP]": { class: "tip", label: "💡 TIP" },
     "[!WARNING]": { class: "warning", label: "⚠️ WARINING" }
   };
 
