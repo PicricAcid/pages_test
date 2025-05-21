@@ -11,12 +11,12 @@ layout: default
 
 ## 🆕 最新記事
 <ul>
-  {% assign pages_soted = site.pages | where_exp: "p", "p.path contains 'contents/'" | sort: "date" | reverse %}
-  {% for p in pages_soted limit:5 %}
+  {% assign pages_sorted = site.pages | where_exp: "p", "p.path contains 'contents/'" | sort: "date" | reverse %}
+  {% for p in pages_sorted limit:5 %}
     <li>
       <a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
-      {% if page.date %}
-        <span style="font-size: 0.85em; color: #666;">（{{ page.date | date: "%Y-%m-%d" }}）</span>
+      {% if p.date %}
+        <span style="font-size: 0.85em; color: #666;">（{{ p.date | date: "%Y-%m-%d" }}）</span>
       {% endif %}
     </li>
   {% endfor %}
