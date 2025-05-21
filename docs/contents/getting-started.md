@@ -9,3 +9,9 @@ tags: [API, guide]
 
 >[!NOTE]
   これはNOTEです。
+
+>[!Tip]
+ これはTipです。
+
+>[!Warning]
+ これはWarningです。
