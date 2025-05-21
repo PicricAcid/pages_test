@@ -7,20 +7,15 @@ layout: default
 
 ようこそ！
 
----
-
-## 📢 お知らせ
-
 <div class="notice">
+## 📢 お知らせ
 <ul>
   {% assign news_items = site.data.news | sort: "date" | reverse %}
-  {% for item in news_items %}
+  {% for item in news_items limit:3 %}
     <li><strong>{{ item.date }}：</strong> {{ item.text }}</li>
   {% endfor %}
 </ul>
 </div>
-
----
 
 ## 🆕 最新記事
 <ul>
