@@ -206,13 +206,26 @@ img {
 .admonition.warning { border-color: #d32f2f; background: #fdecea;}
 .admonition.warning strong { color: #d32f2f; }
 
-.notice {
-  background-color: #f0f4ff;
-  border-left: 5px solid #2e6de6;
-  padding: 1em;
+.notice-box {
+  background-color: #fff9e6;
+  border: 2px solid #f1c40f;
+  border-radius: 8px;
+  padding: 1.2em;
   margin: 2em 0;
-  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
-.notice li {
+
+.notice-box h2 {
+  margin-top: 0;
+  color: #b8860b;
+}
+
+.notice-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5em 0 0;
+}
+
+.notice-box li {
   margin-bottom: 0.5em;
 }
