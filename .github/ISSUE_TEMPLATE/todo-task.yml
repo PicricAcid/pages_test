@@ -1,0 +1,25 @@
+name: 📌 TODO タスク登録
+description: 簡単な作業メモ・タスク登録用テンプレート
+title: "[TODO] "
+labels: [todo]
+
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 📝 やること
+      description: タスクの目的や概要を簡単に書いてください
+      placeholder: 例）lunr.jsで全文検索を実装する
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 🔥 優先度（任意）
+      options:
+        - 高
+        - 中
+        - 低
+    validations:
+      required: false
