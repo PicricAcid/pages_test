@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const replacements = {
     "[!NOTE]": { class: "note", label: "📝 NOTE" },
-    "[!TIP]": { class: "tip" label: "💡 TIP" },
-    "[!WARNING]": { class: "warning", label: "⚠️ WARINING" }
+    "[!Tip]": { class: "tip", label: "💡 TIP" },
+    "[!Warning]": { class: "warning", label: "⚠️ WARNING" }
   };
 
   const paras = document.querySelectorAll("blockquote p");
@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const key = Object.keys(replacements).find(k => text.startsWith(k));
     if (key) {
       const content = p.innerHTML.replace(key, "").trim();
+      const { class: cls, label } = replacements[key];
+
+      const wrapper = document.createElement("div");
       wrapper.className = `admonition ${cls}`;
       wrapper.innerHTML = `<strong>${label}</strong><div class="admonition-content">${content}</div>`;
 
