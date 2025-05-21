@@ -40,12 +40,9 @@ layout: default
 ## 🏷 タグから探す
 
 <ul>
-  {% assign tags = site.pages | map: "tags" | compact | uniq | sort %}
-  {% for tag in tags %}
-    {% assign count = site.pages | where_exp: "p", "p.tags contains '" | append: tag | append: "'" | size %}
-    <li>
-      <a href="{{ site.baseurl }}/tags/{{ tag | downcase | uri_escape }}.html">#{{ tag }}</a>（{{ count }} 件）
-    </li>
+  {% assign pages = site.pages | where_exp: "p", "p.path contains 'tags/'" %}
+  {% for p in pages %}
+    <li><a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a></li>
   {% endfor %}
 </ul>
 
