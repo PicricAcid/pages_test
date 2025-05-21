@@ -201,4 +201,4 @@ img {
 }
 .admonition.note { border-color: #2e6de6; background: #f0f4ff; }
 .admonition.tip { border-color: #28a745; background: #e6f4ea; }
-.admonition.warning { border-color: #d73a49; background: #fbeaea; }
+.admonition.warning { border-color: #d32f2f; background: #fdecea; color: #b71c1c; }
