@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const replacements = {
     "[!NOTE]": { class: "note", label: "📝 NOTE" },
-    "[!TIP]": { class: "tip", label: "💡 TIP" },
-    "[!WARNING]": { class: "warning", label: "⚠️ WARINING" }
+    "[!Tip]": { class: "tip", label: "💡 TIP" },
+    "[!Warning]": { class: "warning", label: "⚠️ WARNING" }
   };
 
   const paras = document.querySelectorAll("blockquote p");
