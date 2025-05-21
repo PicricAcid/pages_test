@@ -9,6 +9,19 @@ layout: default
 
 ---
 
+## 📢 お知らせ
+
+<div class="notice">
+<ul>
+  {% assign news_items = site.data.news | sort: "date" | reverse %}
+  {% for item in news_items %}
+    <li><strong>{{ item.date }}：</strong> {{ item.text }}</li>
+  {% endfor %}
+</ul>
+</div>
+
+---
+
 ## 🆕 最新記事
 <ul>
   {% assign pages_sorted = site.pages | where_exp: "p", "p.path contains 'contents/'" | sort: "date" | reverse %}
