@@ -200,5 +200,8 @@ img {
   margin-top: 0.5em;
 }
 .admonition.note { border-color: #2e6de6; background: #f0f4ff; }
+.admonition.note strong { color: #2e6de6; }
 .admonition.tip { border-color: #28a745; background: #e6f4ea; }
-.admonition.warning { border-color: #d32f2f; background: #fdecea; color: #b71c1c; }
+.admonition.tip strong { color: #28a745; }
+.admonition.warning { border-color: #d32f2f; background: #fdecea;}
+.admonition.warning strong { color: #d32f2f; }
