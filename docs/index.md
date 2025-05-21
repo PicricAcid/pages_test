@@ -7,8 +7,8 @@ layout: default
 
 ようこそ！
 
-<div class="notice">
-## 📢 お知らせ
+<div class="notice-box">
+<h2>📢 お知らせ</h2>
 <ul>
   {% assign news_items = site.data.news | sort: "date" | reverse %}
   {% for item in news_items limit:3 %}
