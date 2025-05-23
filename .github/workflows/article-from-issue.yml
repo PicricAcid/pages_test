@@ -6,7 +6,7 @@ on:
 
 jobs:
   generate-article:
-    if: github.event.issue.title contains '[記事]'
+    if: startsWith(github.event.issue.title, '[記事]')
     runs-on: ubuntu-latest
     steps:
       - name: リポジトリをチェックアウト
