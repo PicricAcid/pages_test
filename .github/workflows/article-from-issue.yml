@@ -17,10 +17,10 @@ jobs:
         run: |
           ISSUE_NUMBER=${{ github.event.issue.number }}
           TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/^\[記事\] //')
-          AUTHOR=$(echo "${{ github.event.issue.body }}" | grep -Po '(?<=著者名\*\*\*:).*' | xargs)
-          TAGS=$(echo "${{ github.event.issue.body }}" | grep -Po '(?<=タグ（カンマ区切り）\*\*\*:).*' | xargs | sed 's/, */, /g')
+          AUTHOR=$(echo "${{ github.event.issue.body }}" | grep -i "^🖋 著者名" | sed 's/^.*:\s*//')
+          TAGS=$(echo "${{ github.event.issue.body }}" | grep -i "^🏷 タグ" | sed 's/^.*:\s*//' | sed 's/, */, /g')
           DATE=$(date "+%Y-%m-%d")
-          FILENAME="contents/${DATE}-${ISSUE_NUMBER}.md"
+          FILENAME="docs/contents/${DATE}-${ISSUE_NUMBER}.md"
 
           echo "作成するファイル: $FILENAME"
           echo "title: $TITLE"
