@@ -27,7 +27,7 @@ jobs:
           echo "author: $AUTHOR"
           echo "tags: [$TAGS]"
 
-          cat <<EOF > $FILENAME
+          cat << EOF > $FILENAME
 ---
 title: "$TITLE"
 author: "$AUTHOR"
@@ -48,3 +48,4 @@ EOF
           base: dev
           title: "${{ github.event.issue.title }}"
           body: "このPRは Issue #${{ github.event.issue.number }} から自動生成されました。"
+          add-path: docs/contents/*.md
