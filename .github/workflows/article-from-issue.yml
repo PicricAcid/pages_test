@@ -15,19 +15,21 @@ jobs:
       - name: Issue内容からファイルを作成
         id: generate
         run: |
+          mkdir -p docs/contents
+
           ISSUE_NUMBER=${{ github.event.issue.number }}
           TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/^\[記事\] //')
-          AUTHOR=$(echo "${{ github.event.issue.body }}" | grep -i "^🖋 著者名" | sed 's/^.*:\s*//')
-          TAGS=$(echo "${{ github.event.issue.body }}" | grep -i "^🏷 タグ" | sed 's/^.*:\s*//' | sed 's/, */, /g')
           DATE=$(date "+%Y-%m-%d")
           FILENAME="docs/contents/${DATE}-${ISSUE_NUMBER}.md"
+
+          AUTHOR=$(echo "${{ github.event.issue.body }}" | grep -i "著者名" | head -n1 | sed 's/^.*:\s*//' || echo "unknown")
+          TAGS=$(echo "${{ github.event.issue.body }}" | grep -i "タグ" | head -n1 | sed 's/^.*:\s*//' | sed 's/, */, /g')
 
           echo "作成するファイル: $FILENAME"
           echo "title: $TITLE"
           echo "author: $AUTHOR"
           echo "tags: [$TAGS]"
-
-          cat << EOF > $FILENAME
+          cat <<EOF > $FILENAME
 ---
 title: "$TITLE"
 author: "$AUTHOR"
