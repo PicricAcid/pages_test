@@ -6,7 +6,7 @@ on:
 
 jobs:
   generate-article:
-    if: github.event.issue.title contains '[記事]'
+    if: startsWith(github.event.issue.title, '[記事]')
     runs-on: ubuntu-latest
     steps:
       - name: リポジトリをチェックアウト
@@ -17,17 +17,17 @@ jobs:
         run: |
           ISSUE_NUMBER=${{ github.event.issue.number }}
           TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/^\[記事\] //')
-          AUTHOR=$(echo "${{ github.event.issue.body }}" | grep -Po '(?<=著者名\*\*\*:).*' | xargs)
-          TAGS=$(echo "${{ github.event.issue.body }}" | grep -Po '(?<=タグ（カンマ区切り）\*\*\*:).*' | xargs | sed 's/, */, /g')
+          AUTHOR=$(echo "${{ github.event.issue.body }}" | grep -i "^🖋 著者名" | sed 's/^.*:\s*//')
+          TAGS=$(echo "${{ github.event.issue.body }}" | grep -i "^🏷 タグ" | sed 's/^.*:\s*//' | sed 's/, */, /g')
           DATE=$(date "+%Y-%m-%d")
-          FILENAME="contents/${DATE}-${ISSUE_NUMBER}.md"
+          FILENAME="docs/contents/${DATE}-${ISSUE_NUMBER}.md"
 
           echo "作成するファイル: $FILENAME"
           echo "title: $TITLE"
           echo "author: $AUTHOR"
           echo "tags: [$TAGS]"
 
-          cat <<EOF > $FILENAME
+          cat << EOF > $FILENAME
 ---
 title: "$TITLE"
 author: "$AUTHOR"
@@ -48,3 +48,4 @@ EOF
           base: dev
           title: "${{ github.event.issue.title }}"
           body: "このPRは Issue #${{ github.event.issue.number }} から自動生成されました。"
+          add-path: docs/contents/*.md
