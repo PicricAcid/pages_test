@@ -48,4 +48,4 @@ jobs:
           base: dev
           title: "${{ github.event.issue.title }}"
           body: "このPRは Issue #${{ github.event.issue.number }} から自動生成されました。"
-          add-path: docs/contents/*.md
+          add-paths: docs/contents/*.md
