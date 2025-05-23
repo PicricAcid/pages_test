@@ -1,0 +1,50 @@
+name: 投稿Issueから記事を生成
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  generate-article:
+    if: github.event.issue.title contains '[記事]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v3
+
+      - name: Issue内容からファイルを作成
+        id: generate
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/^\[記事\] //')
+          AUTHOR=$(echo "${{ github.event.issue.body }}" | grep -Po '(?<=著者名\*\*\*:).*' | xargs)
+          TAGS=$(echo "${{ github.event.issue.body }}" | grep -Po '(?<=タグ（カンマ区切り）\*\*\*:).*' | xargs | sed 's/, */, /g')
+          DATE=$(date "+%Y-%m-%d")
+          FILENAME="contents/${DATE}-${ISSUE_NUMBER}.md"
+
+          echo "作成するファイル: $FILENAME"
+          echo "title: $TITLE"
+          echo "author: $AUTHOR"
+          echo "tags: [$TAGS]"
+
+          cat <<EOF > $FILENAME
+---
+title: "$TITLE"
+author: "$AUTHOR"
+date: "$DATE"
+tags: [${TAGS}]
+---
+
+${{ github.event.issue.body }}
+EOF
+
+          echo "filename=$FILENAME" >> $GITHUB_OUTPUT
+
+      - name: Gitブランチ作成・コミット・PR作成
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "投稿記事: ${{ github.event.issue.title }}"
+          branch: "post/${{ github.event.issue.number }}"
+          base: dev
+          title: "${{ github.event.issue.title }}"
+          body: "このPRは Issue #${{ github.event.issue.number }} から自動生成されました。"
