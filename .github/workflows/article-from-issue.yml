@@ -29,16 +29,14 @@ jobs:
           echo "title: $TITLE"
           echo "author: $AUTHOR"
           echo "tags: [$TAGS]"
-cat <<EOF > $FILENAME
----
-title: "$TITLE"
-author: "$AUTHOR"
-date: "$DATE"
-tags: [${TAGS}]
----
-
-${{ github.event.issue.body }}
-EOF
+          echo <<EOF > $FILENAME
+          echo '---' > $FILENAME
+          echo 'title: "$TITLE"' > $FILENAME
+          echo 'author: "$AUTHOR"' > $FILENAME
+          echo 'date: "$DATE"' > $FILENAME
+          echo 'tags: [${TAGS}]' > $FILENAME
+          echo  '---' > $FILENAME
+          echo "${{ github.event.issue.body }}" > $FILENAME
 
           echo "filename=$FILENAME" >> $GITHUB_OUTPUT
 
