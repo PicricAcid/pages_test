@@ -34,7 +34,8 @@ jobs:
           echo "title: $TITLE"
           echo "author: $AUTHOR"
           echo "tags: [$TAGS]"
-          echo <<EOF > $FILENAME
+          echo "${{ github.event.issue.body }}"
+          
           echo '---' > $FILENAME
           echo 'title: "$TITLE"' > $FILENAME
           echo 'author: "$AUTHOR"' > $FILENAME
