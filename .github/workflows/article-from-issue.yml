@@ -27,22 +27,24 @@ jobs:
           DATE=$(date "+%Y-%m-%d")
           FILENAME="docs/contents/${DATE}-${ISSUE_NUMBER}.md"
 
-          AUTHOR=$(echo "${{ github.event.issue.body }}" | grep -i "著者名" | head -n1 | sed 's/^.*:\s*//' || echo "unknown")
-          TAGS=$(echo "${{ github.event.issue.body }}" | grep -i "タグ" | head -n1 | sed 's/^.*:\s*//' | sed 's/, */, /g')
-
+          AUTHOR=$(echo "${{ github.event.issue.body }}" | awk '/^### 🖋 著者名/{getline; print $0}' | xargs)
+          TAGS=$(echo "${{ github.event.issue.body }}" | awk '/^### 🏷 タグ/{getline; print $0}' | sed 's/, */, /g' | xargs)
+          BODY=$(echo "${{ github.event.issue.body }}" | awk '/^### 📝 記事本文/{flag=1; next} flag {print}')
+          
           echo "作成するファイル: $FILENAME"
           echo "title: $TITLE"
           echo "author: $AUTHOR"
           echo "tags: [$TAGS]"
-          echo "${{ github.event.issue.body }}"
+          echo "body: $BODY"
           
-          echo '---' > $FILENAME
-          echo 'title: "$TITLE"' > $FILENAME
-          echo 'author: "$AUTHOR"' > $FILENAME
-          echo 'date: "$DATE"' > $FILENAME
-          echo 'tags: [${TAGS}]' > $FILENAME
-          echo  '---' > $FILENAME
-          echo "${{ github.event.issue.body }}" > $FILENAME
+          echo "---" >> $FILENAME
+          echo "title: \"$TITLE\"" >> $FILENAME
+          echo "author: \"$AUTHOR\" >> $FILENAME
+          echo "date: \"$DATE\"" >> $FILENAME
+          echo "tags: [${TAGS}]" >> $FILENAME
+          echo "---" >> $FILENAME
+          echo "" >> $FILENAME
+          echo "$BODY" >> $FILENAME
 
           echo "filename=$FILENAME" >> $GITHUB_OUTPUT
 
