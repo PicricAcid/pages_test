@@ -38,7 +38,7 @@ jobs:
           echo "body: $BODY"
           
           echo "---" > $FILENAME
-          echo 'title: '$TITLE'" >> $FILENAME
+          echo "title: '$TITLE'" >> $FILENAME
           echo "author: $AUTHOR" >> $FILENAME
           echo "date: $DATE" >> $FILENAME
           echo "tags: [${TAGS}]" >> $FILENAME
