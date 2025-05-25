@@ -29,7 +29,14 @@ jobs:
           FILENAME="docs/contents/${FILENAME_RAW}.md"
           
           AUTHOR=$(echo "${{ github.event.issue.body }}" | awk '/^### 🖋 著者名/{getline; getline; print $0}' | xargs)
-          TAGS=$(echo "${{ github.event.issue.body }}" | awk '/^### 🏷 タグ/{getline; getline; print $0}' | sed 's/, */, /g' | xargs)
+          TAGS=$(echo "${{ github.event.issue.body }}" \
+            | awk '/^### 🏷 タグ/{getline; getline; print $0}' \
+            | tr '[:upper:]' '[:lower:]' \
+            | sed 's/, */, /g' \
+            | tr -s ' ' \
+            | xargs \
+            | tr ',' '\n' | sed 's/^ *//;s/ *$//' | sort -u | paste -sd, -)
+
           BODY=$(echo "${{ github.event.issue.body }}" | awk '/^### 📝 記事本文/{flag=1; next} flag {print}')
           
           echo "作成するファイル: $FILENAME"
