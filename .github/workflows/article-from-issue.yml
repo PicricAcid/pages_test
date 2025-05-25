@@ -25,8 +25,9 @@ jobs:
           ISSUE_NUMBER=${{ github.event.issue.number }}
           TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/^\[記事\] //')
           DATE=$(date "+%Y-%m-%d")
-          FILENAME="docs/contents/${DATE}-${ISSUE_NUMBER}.md"
-
+          FILENAME_RAW=$(echo "${{ github.event.issue.body }}" | awk '/^### 📄 ファイル名/{getline; getline; print $0}' | xargs)
+          FILENAME="docs/contents/${FILENAME_RAW}.md"
+          
           AUTHOR=$(echo "${{ github.event.issue.body }}" | awk '/^### 🖋 著者名/{getline; getline; print $0}' | xargs)
           TAGS=$(echo "${{ github.event.issue.body }}" | awk '/^### 🏷 タグ/{getline; getline; print $0}' | sed 's/, */, /g' | xargs)
           BODY=$(echo "${{ github.event.issue.body }}" | awk '/^### 📝 記事本文/{flag=1; next} flag {print}')
