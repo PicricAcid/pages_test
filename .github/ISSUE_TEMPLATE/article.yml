@@ -5,6 +5,14 @@ labels: [投稿候補]
 
 body:
   - type: input
+    id: filename
+    attributes:
+      label: 📄 ファイル名（拡張子不要、英数字＋アンダーバーのみ）
+      placeholder: 例）manual_test
+    validations:
+      required: true
+
+  - type: input
     id: author
     attributes:
       label: 🖋 著者名
