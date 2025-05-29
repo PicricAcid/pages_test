@@ -30,18 +30,7 @@ layout: default
   {% endfor %}
 </ul>
 
-▶ 全記事を見る 🚧 準備中! 🚧
-
-## 記事一覧
-
-<ul>
-  {% assign pages = site.pages | where_exp: "p", "p.path contains 'contents/'" %}
-  {% for p in pages %}
-    <li>
-      <a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+[▶ 全記事を見る](all_contents_list.md)
 
 ---
 
