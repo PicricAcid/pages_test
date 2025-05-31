@@ -21,7 +21,7 @@ title: 検索
     .then(data => {
       docs = data;
       idx = lunr(function () {
-        this.use('lunr.ja');
+        this.use(lunr.ja);
         this.ref('url');
         this.field('title');
         this.field('content');
