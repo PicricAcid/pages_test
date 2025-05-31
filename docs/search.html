@@ -1,0 +1,51 @@
+---
+layout: default
+title: 検索
+---
+
+<h2>🔍 全文検索</h2>
+<input type="text" id="search-box" placeholder="キーワードを入力..." style="width:100%; padding: 0.5rem; font-size: 1.1rem;">
+<ul id="search-results" style="margin-top: 1rem; list-style: none; padding: 0;"></ul>
+
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script>
+  let idx = null;
+  let docs = [];
+
+  // search.jsonを読み込む
+  fetch("{{ site.baseurl }}/search.json")
+    .then(response => response.json())
+    .then(data => {
+      docs = data;
+      idx = lunr(function () {
+        this.ref('url');
+        this.field('title');
+        this.field('content');
+
+        docs.forEach(function (doc) {
+          this.add(doc);
+        }, this);
+      });
+    });
+
+  // 入力に応じて検索を実行
+  document.getElementById('search-box').addEventListener('input', function () {
+    const query = this.value.trim();
+    const resultBox = document.getElementById('search-results');
+    resultBox.innerHTML = '';
+
+    if (query.length > 1 && idx) {
+      const results = idx.search(query);
+      if (results.length > 0) {
+        results.forEach(result => {
+          const match = docs.find(d => d.url === result.ref);
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${match.url}">${match.title}</a>`;
+          resultBox.appendChild(li);
+        });
+      } else {
+        resultBox.innerHTML = '<li>一致する記事が見つかりませんでした</li>';
+      }
+    }
+  });
+</script>
