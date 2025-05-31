@@ -1,0 +1,13 @@
+---
+layout: none
+---
+[
+  {% assign pages = site.pages | where_exp: "p", "p.path contains 'contents/'" %}
+  {% for page in pages %}
+    {
+      "title": {{ page.title | jsonify }},
+      "url": "{{ site.baseurl }}{{ page.url }}",
+      "content": {{ page.content | strip_html | normalize_whitespace | jsonify }}
+    }{% if forloop.last == false %},{% endif %}
+  {% endfor %}
+]
