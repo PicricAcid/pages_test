@@ -1,7 +1,10 @@
 ---
 title: "test"
 author: "PicricAcid"
-date: "2025-06-11"
-tags: ["test1", "test2"]
+date: "2025-06-18"
+lastmod: "2025-06-18"
+tags: ["tag1", "tag2"]
 ---
-本文を書いてください。
+
+## テストテスト
+テストです。 
