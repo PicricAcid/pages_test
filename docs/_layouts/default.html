@@ -14,7 +14,7 @@
       <div class="wrapper">
         <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
         <nav class="site-nav">
-          <a href="{{ site.baseurl }}/tags/index.html">ホーム</a>
+          <a href="{{ site.baseurl }}/index.html">ホーム</a>
           <a href="https://github.com/{{ site.github.repository_nwo }}">GitHub</a>
         </nav>
       </div>
@@ -32,7 +32,7 @@
           <p class="page-tags">
             🏷 :
             {% for tag in page.tags %}
-              <a class="tag-link" href="{{ site.baseurl }}/tags/{{ tag | downcase | uri_escape }}.html">[{{ tag }}]</a>
+              <a class="tag-link" href="{{ site.baseurl }}/tags/{{ tag | downcase | uri_escape }}">[{{ tag }}]</a>
             {% endfor %}
           </p>
         {% endif %}
