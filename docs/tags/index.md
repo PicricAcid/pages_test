@@ -1,17 +1,15 @@
 ---
 layout: default
-title: タグ一覧
+title: 全タグ
 ---
 
 # タグ一覧
 
 <ul>
-  {% assign tags = site.tags | sort %}
+  {% assign tags = site.pages | where_exp: "p", "p.path contains 'tags/'" %}
   {% for tag in tags %}
     <li>
-      <a href="{{ '/tags/' | append: tag[0] | append: '.html' | relative_url }}">
-        {{ tag[0] }} ({{ tag[1].size }})
-      </a>
+      <a href="{{ site.baseurl }}/tags/{{ tag.url }}">{{ tag.title }}</a>
     </li>
   {% endfor %}
 </ul>
