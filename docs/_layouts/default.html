@@ -27,7 +27,7 @@
         <p class="page-meta">
           {% if page.author %}🖋 {{ page.author }} {% endif %}
           {% if page.date %}📅 {{ page.date | date: "%Y年%m月%d日" }}{% endif %}
-          {% if pade.lastmod %}最終更新 {{ page.lastmod | date: "%Y年%m月%d日" }}{% endif %}
+          {% if page.lastmod %}最終更新 {{ page.lastmod | date: "%Y年%m月%d日" }}{% endif %}
         </p>
         
         {% if page.tags %}
@@ -39,7 +39,9 @@
           </p>
         {% endif %}
 
-        <meta name="lastmod" content="{{ page.lastmod }}">
+        <div id="style-warning" style="display: none;" class="admonition warning">
+          ⚠️この情報は最終更新から180日以上経過しています。
+        </div>
         
         {{ content }}
       </main>
