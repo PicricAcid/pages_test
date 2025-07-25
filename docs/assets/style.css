@@ -263,3 +263,13 @@ img {
 .notice-box li {
   margin-bottom: 0.5em;
 }
+
+.admonition.warning {
+  border-left: 5px solid #d32f2f;
+  background: #fdecea;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+  color: #b71c1c;
+  font-weight: bold;
+}
