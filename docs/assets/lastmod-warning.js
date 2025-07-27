@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const lastmodStr = "{{ page.lastmod | date_to_xmlschema }}";
+    const warning = document.getElementById("stale-warning");
+    if (!warning) return;
+    
+    const lastmodStr = warning.dataset.lastmod;
     console.log("lastmodStr raw:", lastmodStr);
     if (!lastmodStr) return;
 
@@ -10,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(`Days since last modified: ${diffDays}`);
 
     if (diffDays >= 180) {
-        const warning = document.getElementById("stale-warning");
         if (warning) warning.style.display = "block";
     }
 });
