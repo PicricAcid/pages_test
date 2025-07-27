@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const lastmodStr = "{{ page.lantmod | escape }}";
+    const lastmodStr = "{{ page.lastmod | escape }}";
     if (!lastmodStr) return;
 
     const lastmodDate = new Date(lastmodStr);
