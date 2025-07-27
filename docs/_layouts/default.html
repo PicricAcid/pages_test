@@ -38,7 +38,12 @@
           </p>
         {% endif %}
 
-        <div id="stale-warning" style="display:none;" class="admonition warning">
+        <div
+          id="stale-warning"
+          data-lastmod="{{ page.lastmod | date_to_xmlschema }}"
+          style="display:none;"
+          class="admonition warning"
+        >
           ⚠️この情報は最終更新から180日以上経過しています。
         </div>
         
