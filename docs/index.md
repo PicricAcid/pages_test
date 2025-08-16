@@ -42,7 +42,7 @@ layout: default
 
 ## ✅ 拡張機能のダウンロード
 
-- [拡張機能（.vsixファイル）をダウンロード](https://github.com/PicricAcid/manual-site-extension/releases/download/v0.0.1/manual-site-extension-0.0.1.vsix)
+- [拡張機能（.vsixファイル）をダウンロード](https://github.com/PicricAcid/manual-site-extension)
 - VSCodeの「Install from VSIX」でインストールしてください
 
 ---
