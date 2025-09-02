@@ -36,12 +36,14 @@ layout: default
 
 ## 🏷 タグから探す
 
-<ul>
-  {% assign pages = site.pages | where_exp: "p", "p.path contains 'tags/'" %}
-  {% for p in pages %}
-    <li><a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a></li>
-  {% endfor %}
-</ul>
+[▶ タグ一覧を見る](tags/index.html)
+
+---
+
+## ✅ 拡張機能のダウンロード
+
+- [拡張機能（.vsixファイル）をダウンロード](https://github.com/PicricAcid/manual-site-extension)
+- VSCodeの「Install from VSIX」でインストールしてください
 
 ---
 

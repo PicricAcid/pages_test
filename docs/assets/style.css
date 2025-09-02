@@ -55,9 +55,14 @@ body {
   padding-right: 2rem;
 }
 
-.page-title {
-  margin-top: 0;
-  font-size: 1.8rem;
+h1.page-title {
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  color: #111;
+  border-bottom: 3px solid #ccc;
+  padding-bottom: 0.3em;
 }
 
 .page-meta {
@@ -73,6 +78,35 @@ body {
   border-top: 1px solid #eee;
   margin-top: 3rem;
   padding: 1rem;
+}
+
+h2 {
+  font-size: 1.6em;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid #ddd;
+  font-weight: bold;
+  color: #222;
+}
+
+h3 {
+  font-size: 1.3em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  padding-left: 0.5em;
+  border-left: 4px solid #0366d6;
+  background-color: #f4faff;
+  font-weight: bold;
+  color: #004080;
+}
+
+h4 {
+  font-size: 1.1em;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+  font-weight: bold;
+  color: #555;
 }
 
 pre {
@@ -228,4 +262,14 @@ img {
 
 .notice-box li {
   margin-bottom: 0.5em;
+}
+
+.admonition.warning {
+  border-left: 5px solid #d32f2f;
+  background: #fdecea;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+  color: #b71c1c;
+  font-weight: bold;
 }
