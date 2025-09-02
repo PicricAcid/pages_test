@@ -46,7 +46,7 @@
         <div class="feedback">
           <a 
             class="feedback-button"
-            href="https://github.com/PicricAcid/pages_test/issues/new?title={{ page.title | uri_escape }} のフィードバック&body=このページに関するフィードバックを入力してください: {{ site.url }}{{ page.url }}"
+            href="https://github.com/PicricAcid/pages_test/issues/new?title={{ page.title | uri_escape }} のフィードバック&body=このページに関するフィードバックを入力してください: {{ site.url }}{{ page.url }}{% if page.auther %}{% assign github_user = site.data.authors[page.author].github | default: page.author %}%0A%0A@{{ github_user }}{% endif %}"
             target="_blank"
           >
             📝 フィードバックを送る
