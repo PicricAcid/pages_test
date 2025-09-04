@@ -15,3 +15,7 @@ int main() {
 }
 ```
 
+```math
+\bar{X} = \frac{\Sigma{x_i}}{n}
+```
+
