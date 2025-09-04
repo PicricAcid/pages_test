@@ -7,7 +7,7 @@ tags: [guide]
 
 こちらは社内でよくある質問と回答です。
 
-```C
+```c
 // C言語のサンプル
 int main() {
   printf("Hello");
