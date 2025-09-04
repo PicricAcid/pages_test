@@ -1,77 +1,87 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charaset="UTF-8">
-    <title>{{ page.title }} | {{ site.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/rouge.css">
-    <script src="https://unpkg.com/lunr/lunr.js"></script>
-  </head>
 
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-        <nav class="site-nav">
-          <a href="{{ site.baseurl }}/index.html">ホーム</a>
-          <a href="https://github.com/{{ site.github.repository_nwo }}">GitHub</a>
-        </nav>
-      </div>
-    </header>
-    
-    <div class="wrapper page">
-      <main class="page-content">
-        <h1 class="page-title">{{ page.title }}</h1>
-        <p class="page-meta">
-          {% if page.author %}🖋 {{ page.author }} {% endif %}
-          {% if page.date %}📅 {{ page.date | date: "%Y年%m月%d日" }}{% endif %}
-          {% if page.lastmod %}最終更新 {{ page.lastmod | date: "%Y年%m月%d日" }}{% endif %}
-        </p>
-        
-        {% if page.tags %}
-          <p class="page-tags">
-            🏷 :
-            {% for tag in page.tags %}
-              <a class="tag-link" href="{{ site.baseurl }}/tags/{{ tag | downcase | uri_escape }}">[{{ tag }}]</a>
-            {% endfor %}
-          </p>
-        {% endif %}
+<head>
+  <meta charaset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/rouge.css">
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],      // インライン
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],     // ディスプレイ
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] // コード内は無視
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
-        <div
-          id="stale-warning"
-          data-lastmod="{{ page.lastmod | date_to_xmlschema }}"
-          style="display:none;"
-          class="admonition warning"
-        >
-          ⚠️この情報は最終更新から180日以上経過しています。
-        </div>
-        
-        {{ content }}
-      </main>
+</head>
 
-      <aside class="page-sidebar">
-        <div class="page-toc" id="toc"></div>
-      
-        <div class="feedback">
-          <a 
-            class="feedback-button"
-            href="https://github.com/PicricAcid/pages_test/issues/new?title={{ page.title | uri_escape }} のフィードバック&body=このページに関するフィードバックを入力してください: {{ site.url }}{{ page.url }}%0A%0A@{{ site.data.authors[page.author].github | page.author }}"
-            target="_blank"
-          >
-            📝 フィードバックを送る
-          </a>
-        </div>
-      </aside>
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+      <nav class="site-nav">
+        <a href="{{ site.baseurl }}/index.html">ホーム</a>
+        <a href="https://github.com/{{ site.github.repository_nwo }}">GitHub</a>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-      <p>©︎ {{ site.time | date: "%Y" }} {{ site.title }}</p>
-    </footer>
-      
-    <script src="{{ site.baseurl }}/assets/toc.js"></script>
-    <script src="{{ site.baseurl }}/assets/copy.js"></script>
-    <script src="{{ site.baseurl }}/assets/admonition.js"></script>
-    <script src="{{ site.baseurl }}/assets/lastmod-warning.js"></script>
-  </body>
+  <div class="wrapper page">
+    <main class="page-content">
+      <h1 class="page-title">{{ page.title }}</h1>
+      <p class="page-meta">
+        {% if page.author %}🖋 {{ page.author }} {% endif %}
+        {% if page.date %}📅 {{ page.date | date: "%Y年%m月%d日" }}{% endif %}
+        {% if page.lastmod %}最終更新 {{ page.lastmod | date: "%Y年%m月%d日" }}{% endif %}
+      </p>
+
+      {% if page.tags %}
+      <p class="page-tags">
+        🏷 :
+        {% for tag in page.tags %}
+        <a class="tag-link" href="{{ site.baseurl }}/tags/{{ tag | downcase | uri_escape }}">[{{ tag }}]</a>
+        {% endfor %}
+      </p>
+      {% endif %}
+
+      <div id="stale-warning" data-lastmod="{{ page.lastmod | date_to_xmlschema }}" style="display:none;"
+        class="admonition warning">
+        ⚠️この情報は最終更新から180日以上経過しています。
+      </div>
+
+      {{ content }}
+    </main>
+
+    <aside class="page-sidebar">
+      <div class="page-toc" id="toc"></div>
+
+      <div class="feedback">
+        <a class="feedback-button"
+          href="https://github.com/PicricAcid/pages_test/issues/new?title={{ page.title | uri_escape }} のフィードバック&body=このページに関するフィードバックを入力してください: {{ site.url }}{{ page.url }}%0A%0A@{{ site.data.authors[page.author].github | page.author }}"
+          target="_blank">
+          📝 フィードバックを送る
+        </a>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p>©︎ {{ site.time | date: "%Y" }} {{ site.title }}</p>
+  </footer>
+
+  <script src="{{ site.baseurl }}/assets/toc.js"></script>
+  <script src="{{ site.baseurl }}/assets/copy.js"></script>
+  <script src="{{ site.baseurl }}/assets/admonition.js"></script>
+  <script src="{{ site.baseurl }}/assets/lastmod-warning.js"></script>
+</body>
+
 </html>
