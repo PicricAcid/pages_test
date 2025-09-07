@@ -109,6 +109,7 @@ h4 {
   color: #555;
 }
 
+/*
 pre {
   background: #f6f8fa;
   border: 1px solid #d0d7de;
@@ -126,6 +127,7 @@ pre code {
   background: none;
   padding: 0;
 }
+*/
 
 .copy-button {
   position: absolute;
@@ -272,4 +274,38 @@ img {
   border-radius: 4px;
   color: #b71c1c;
   font-weight: bold;
+}
+
+pre {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 1.5em;
+  overflow-x: auto;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.highlight,
+figure.highlight {
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  overflow: auto;
+  position: relative;
+  margin-bottom: 1.5em;
+}
+.highlight pre,
+figure.highlight pre {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 1em;
+}
+.highlight pre code,
+figure.highlight pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
 }
